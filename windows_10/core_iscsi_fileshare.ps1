@@ -13,10 +13,10 @@ Install-WindowsFeature -name Multipath-IO
 # Connect ISCSI Target Portal
 
 # w/ Discovery CHAP
-New-IscsiTargetPortal –AuthenticationType ONEWAYCHAP –ChapUserName <name> -ChapSecret <Secret> -TargetPortalAddress 10.66.6.32 -InitiatorPortalAddress 192.168.25.20 #-InitiatorInstanceName "ROOT\ISCSIPRT\0000_0"
+New-IscsiTargetPortal –AuthenticationType ONEWAYCHAP –ChapUserName <name> -ChapSecret <Secret> -TargetPortalAddress 10.66.6.32 -InitiatorPortalAddress 10.66.6.20 #-InitiatorInstanceName "ROOT\ISCSIPRT\0000_0"
 
 # w/out DIscovery CHAP
-New-IscsiTargetPortal -TargetPortalAddress 10.66.6.32 -InitiatorPortalAddress 192.168.25.20 -InitiatorInstanceName "ROOT\ISCSIPRT\0000_"
+New-IscsiTargetPortal -TargetPortalAddress 10.66.6.32 -InitiatorPortalAddress 10.66.6.20 -InitiatorInstanceName "ROOT\ISCSIPRT\0000_"
 
 # Connect Discovered Target(endpoint)
 $target = Get-IscsiTarget
